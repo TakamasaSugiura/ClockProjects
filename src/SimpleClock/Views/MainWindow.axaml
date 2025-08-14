@@ -8,7 +8,7 @@
         x:DataType="vm:MainWindowViewModel"
         CanResize="False"
         Width="320"
-        Height="240"
+        Height="120"
         Icon="/Assets/logo.png"
         Title="SimpleClock">
 
@@ -23,7 +23,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid ColumnDefinitions="* 3*" Margin="5">
-                        <TextBlock FontSize="16" Text="{Binding Name}"></TextBlock>
+                        <TextBlock FontSize="16" Text="{Binding Name}" VerticalAlignment="Bottom"></TextBlock>
                         <TextBlock Grid.Column="1" FontSize="18" Text="{Binding Value}" HorizontalAlignment="Center"></TextBlock>
                     </Grid>
                 </DataTemplate>
