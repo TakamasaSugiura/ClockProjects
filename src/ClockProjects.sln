@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleClock", "SimpleClock\SimpleClock.csproj", "{837B5D16-E37C-4327-81E7-F33C99C096E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockCommonLib", "ClockCommonLib\ClockCommonLib.csproj", "{5BD36D11-5E0D-41E7-AFB9-5A63D4CB5212}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{837B5D16-E37C-4327-81E7-F33C99C096E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{837B5D16-E37C-4327-81E7-F33C99C096E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{837B5D16-E37C-4327-81E7-F33C99C096E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{837B5D16-E37C-4327-81E7-F33C99C096E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BD36D11-5E0D-41E7-AFB9-5A63D4CB5212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD36D11-5E0D-41E7-AFB9-5A63D4CB5212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD36D11-5E0D-41E7-AFB9-5A63D4CB5212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD36D11-5E0D-41E7-AFB9-5A63D4CB5212}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
