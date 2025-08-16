@@ -9,6 +9,9 @@
     <ItemGroup>
       <PackageReference Include="Avalonia" />
       <PackageReference Include="CommunityToolkit.Mvvm" />
+        <PackageReference Include="System.IO.Abstractions" />
+        <PackageReference Include="System.IO.Abstractions.TestingHelpers" />
+        <PackageReference Include="YamlDotNet" />
     </ItemGroup>
 
 </Project>

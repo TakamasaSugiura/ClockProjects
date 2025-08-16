@@ -3,18 +3,47 @@
         xmlns:vm="using:RestScheduler.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="https://github.com/projektanker/icons.avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RestScheduler.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="RestScheduler">
+        Title="RestScheduler"
+        x:Name="Window">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" i:MenuItem.Icon="fa-solid fa-file" Command="{Binding NewMenuActionCommand}"></MenuItem>
+                <MenuItem Header="_Open" i:MenuItem.Icon="fa-solid fa-folder-open" Command="{Binding OpenMenuActionCommand}" CommandParameter="{Binding ElementName=Window}"></MenuItem>
+                <MenuItem Header="_Save" i:MenuItem.Icon="fa-solid fa-floppy-disk" Command="{Binding SaveMenuActionCommand}" CommandParameter="{Binding ElementName=Window}"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="E_xit" i:MenuItem.Icon="fa-solid fa-arrow-right-from-bracket" Command="{Binding ExitMenuActionCommand}" CommandParameter="{Binding ElementName=Window}"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Add interval action" Command="{Binding AddIntervalActionCommand}"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <StackPanel>
+            <ItemsControl ItemsSource="{Binding IntervalDataList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="LightGray" CornerRadius="3" BorderThickness="1" Margin="1">
+                            <Grid ColumnDefinitions="* 3*" Margin="5">
+                                <TextBlock Text="{Binding RestData.Url}"></TextBlock>
+                                <TextBlock Grid.Column="1" Text="{Binding Interval}"></TextBlock>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+        </StackPanel>
+    </DockPanel>
+    
 </Window>

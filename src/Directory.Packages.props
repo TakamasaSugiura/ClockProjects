@@ -1,18 +1,30 @@
 <Project>
-    <PropertyGroup>
-        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
-    </PropertyGroup>
-    <!-- ASP NET -->
-    <PropertyGroup>
-        <AvaloniaVersion>11.3.*</AvaloniaVersion>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)"/>
-        <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
-        <PackageVersion Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)"/>
-        <PackageVersion Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)"/>
-        <PackageVersion Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
-        <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.2.*"/>
-    </ItemGroup>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
+  </PropertyGroup>
+  <!-- ASP NET -->
+  <PropertyGroup>
+    <AvaloniaVersion>11.3.*</AvaloniaVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.2.*" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
+    <PackageVersion Include="Projektanker.Icons.Avalonia" Version="9.6.2" />
+    <PackageVersion Include="Projektanker.Icons.Avalonia.FontAwesome" Version="9.6.2" />
+    <PackageVersion Include="Projektanker.Icons.Avalonia.MaterialDesign" Version="9.6.2" />
+    <PackageVersion Include="YamlDotNet" Version="16.3.*" />
+  </ItemGroup>
+  <PropertyGroup>
+    <IoAbstractionsVersion>22.0.*</IoAbstractionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="System.IO.Abstractions" Version="$(IoAbstractionsVersion)" />
+    <PackageVersion Include="System.IO.Abstractions.TestingHelpers" Version="$(IoAbstractionsVersion)" />
+  </ItemGroup>
 </Project>
