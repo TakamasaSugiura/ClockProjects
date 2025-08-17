@@ -7,6 +7,7 @@ using Avalonia.Platform.Storage;
 using ClockCommonLib.ViewModels;
 using CommunityToolkit.Mvvm.Input;
 using RestScheduler.Data;
+using RestScheduler.Definitions;
 using RestScheduler.Models;
 
 namespace RestScheduler.ViewModels;
@@ -19,7 +20,7 @@ public partial class MainWindowViewModel : ViewModelBase
     public string Greeting => "Welcome to Avalonia!";
 #pragma warning restore CA1822 // Mark members as static
 
-    public ObservableCollection<IntervalActionData> IntervalDataList { get; } = [];
+    public ObservableCollection<IntervalContentViewModel> IntervalDataList { get; } = [];
 
     public MainWindowViewModel(IFileSystem fileSystem, IFileIoModel fileIoModel)
     {
@@ -47,7 +48,16 @@ public partial class MainWindowViewModel : ViewModelBase
                 IntervalDataList.Clear();
                 foreach (var intervalActionData in settingData.IntervalActionList)
                 {
-                    IntervalDataList.Add(intervalActionData);
+                    var restDataSrc = intervalActionData.RestData;
+                    var intervalContentViewModel = new IntervalContentViewModel
+                    {
+                        Id = intervalActionData.Id,
+                        Name = intervalActionData.Name,
+                        Interval = intervalActionData.Interval,
+                        IsWorking = false,
+                        RestData = restDataSrc?.Clone() ?? new RestData(),
+                    };
+                    IntervalDataList.Add(intervalContentViewModel);
                 }
             }
         }
@@ -65,7 +75,13 @@ public partial class MainWindowViewModel : ViewModelBase
                 await using var stream = await file.OpenWriteAsync();
                 var settingData = new SettingData
                 {
-                    IntervalActionList = [..IntervalDataList]
+                    IntervalActionList = [..IntervalDataList.Select(x => new IntervalActionData
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                        Interval = x.Interval,
+                        RestData = x.RestData.Clone()
+                    })]
                 };
                 _fileIoModel.SaveSettingFile(stream, settingData);
             }
@@ -84,6 +100,6 @@ public partial class MainWindowViewModel : ViewModelBase
     [RelayCommand]
     private void AddIntervalAction()
     {
-        IntervalDataList.Add(new IntervalActionData());
+        IntervalDataList.Add(new IntervalContentViewModel());
     }
 }

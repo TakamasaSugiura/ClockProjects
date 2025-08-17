@@ -34,10 +34,24 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="LightGray" CornerRadius="3" BorderThickness="1" Margin="1">
-                            <Grid ColumnDefinitions="* 3*" Margin="5">
-                                <TextBlock Text="{Binding RestData.Url}"></TextBlock>
-                                <TextBlock Grid.Column="1" Text="{Binding Interval}"></TextBlock>
-                            </Grid>
+                            <StackPanel Margin="5">
+                                <Grid ColumnDefinitions="auto * auto" Margin="0 5">
+                                    <TextBlock Text="Name" VerticalAlignment="Center"></TextBlock>
+                                    <TextBox Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"></TextBox>
+                                    <ToggleButton Grid.Column="2" Command="{Binding WorkButtonActionCommand}" VerticalAlignment="Center" IsChecked="{Binding IsWorking}"><i:Icon Value="fa-solid fa-power-off"></i:Icon></ToggleButton>
+                                </Grid>
+                                <Grid ColumnDefinitions="auto * auto *" Margin="0 5">
+                                    <TextBlock Text="URL" VerticalAlignment="Center"></TextBlock>
+                                    <TextBox Grid.Column="1" Text="{Binding RestData.Url}" VerticalAlignment="Center"></TextBox>
+                                    <TextBlock Grid.Column="2" Text="Interval" VerticalAlignment="Center"></TextBlock>
+                                    <NumericUpDown Grid.Column="3" Value="{Binding Interval}" Minimum="10" Maximum="60000" VerticalAlignment="Center"></NumericUpDown>
+                                </Grid>
+                                <Grid ColumnDefinitions="auto auto auto *" Margin="0 5">
+                                    <TextBlock Text="Method" VerticalAlignment="Center"></TextBlock>
+                                    <ComboBox Grid.Column="1" ItemsSource="{Binding RestMethods}" VerticalAlignment="Center"></ComboBox>
+                                    <TextBlock Grid.Column="2" Text="Content type" VerticalAlignment="Center"></TextBlock>
+                                </Grid>
+                            </StackPanel>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
